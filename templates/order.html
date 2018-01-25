@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Order Now {% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+
+      <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">New Order
+          <strong>Fausties Bakery</strong>
+        </h2>
+        <hr class="divider">
+        <form method="POST" action="{{ url_for('order') }}">
+          <div class="row">
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Name</label>
+              <input type="text" name = 'name' class="form-control" required size="50" maxlength="50">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Email Address</label>
+              <input type="email" name = 'email' class="form-control" required size="50" maxlength="50">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Phone Number</label>
+              <input type="tel" name = 'phone' class="form-control" required size="20" maxlength="20">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Cake Type</label>
+              <input type="text" name = 'cake_type' class="form-control" required size="30" maxlength="30">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Cake Shape</label>
+              <input type="text" name = 'shape' class="form-control" required size="20" maxlength="20">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Weight in Kilograms</label>
+              <input type="text" name = 'weight' class="form-control" required size="20" maxlength="20">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Cake's Message</label>
+              <input type="text" name = 'cake_message' class="form-control" required size="80" maxlength="80">
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+              <label class="text-heading">Special Instructions</label>
+              <textarea class="form-control" name = 'instructions' rows="6" required></textarea>
+            </div>
+            <div class="form-group col-lg-12">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %} About {% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+
+      <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">About
+          <strong>Fausties Bakery</strong>
+        </h2>
+        <hr class="divider">
+        <div class="row">
+          <div class="col-lg-6">
+            <img class="img-fluid mb-4 mb-lg-0" src="{{ url_for('static', filename='slide-2.jpg') }}" alt="">
+          </div>
+          <div class="col-lg-6">
+            <p>Our mission at Fausties Bakery is to deliver well-crafted cakes of superior quality for celebrations 
+                and everyday life at affordable prices. Driven by unmatched passion in our craft, we go  above and beyond to ensure that we 
+                deliver remarkable cakes to our clients for we truly believe in customer satisfaction. 
+                With this in mind, you know that you can count on us to deliver value to you, our dear client.</p>
+            <p>We pride ourselves in our creativity which truly speaks for itself. With regards to time, you can rest easy 
+              for we are particularly keen to deliver cakes in good time without compromising on value thus saving 
+              you the needless hussle.Moreover, Deliveries can be made to Gateway Mall, Syokimau or within the CBD but at a fee.
+               So, what are you waiting for? Come join the Fausties community and be a part of something great.</p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

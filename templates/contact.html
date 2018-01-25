@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Contact {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+      <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">Contact
+          <strong>Fausties Bakery</strong>
+        </h2>
+        <hr class="divider">
+        <div class="row">
+          <div class="col-lg-8">
+
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+
+          </div>
+          <div class="col-lg-4">
+            <h5 class="mb-0">Phone:</h5>
+            <div class="mb-4">0714871061</div>
+            <h5 class="mb-0">Email:</h5>
+            <div class="mb-4">
+              <a href="mailto:faustiesbakery@gmail.com">faustiesbakery@gmail.com</a>
+            </div>
+            <h5 class="mb-0">Address:</h5>
+            <div class="mb-4">
+              Nairobi, Kenya
+              <br>
+              Syokimau | Behind Gateway Mall
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">Contact
+          <strong>Form</strong>
+        </h2>
+        <hr class="divider">
+        <form method="POST" action="{{ url_for('contact') }}">
+          <div class="row">
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Name</label>
+              <input type="text" name = 'name' class="form-control" required size="50" maxlength="50">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Email Address</label>
+              <input type="email" name = 'email' class="form-control" required size="50" maxlength="50">
+            </div>
+            <div class="form-group col-lg-4">
+              <label class="text-heading">Phone Number</label>
+              <input type="tel" name = 'phone' class="form-control" required size="20" maxlength="20">
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+              <label class="text-heading">Message</label>
+              <textarea class="form-control" name ='site_message' rows="6" required></textarea>
+            </div>
+            <div class="form-group col-lg-12">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}
