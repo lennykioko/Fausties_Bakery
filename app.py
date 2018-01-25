@@ -1,30 +1,20 @@
 """contains backend logic for the web app"""
-# sendgrid
-import os
-import sendgrid
-from sendgrid.helpers.mail import *
-
 from flask import Flask, render_template, request, redirect, url_for
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 
 
 app = Flask(__name__)
 
 # email configuration when running locally
-# app.config["MAIL_SERVER"] = 'smtp.gmail.com'
-# app.config["MAIL_PORT"] = '587'
-# app.config["MAIL_USE_TLS"] = True
-# app.config["MAIL_USE_SSL"] = False
-# app.config["MAIL_USERNAME"] = 'faustiesbakery@gmail.com'
-# app.config["MAIL_PASSWORD"] = 'mueni1998'
-
-#sendgrid
-sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
-from_email = Email("app86537584@heroku.com")
-to_email = Email("faustiesbakery@gmail.com")
+app.config["MAIL_SERVER"] = 'smtp.gmail.com'
+app.config["MAIL_PORT"] = '587'
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USE_SSL"] = False
+app.config["MAIL_USERNAME"] = 'faustiesbakery@gmail.com'
+app.config["MAIL_PASSWORD"] = 'password'
 
 
-# mail = Mail(app)
+mail = Mail(app)
 
 
 @app.route('/')
@@ -55,16 +45,11 @@ def contact():
         content = """ Name: {} \n Email: {} \n Phone: {} \n Message: {} \n
                   """.format(name, email, phone, site_message)
 
-        # msg = Message("NEW CLIENT MESSAGE",
-                    #   sender='faustiesbakery@gmail.com',
-                    #   body=content,
-                    #   recipients=['faustiesbakery@gmail.com'])
-        # mail.send(msg)
-        subject1 = "NEW CLIENT MESSAGE"
-        msg_content = Content("text/plain", content)
-        mail = Mail(from_email, subject1, to_email, msg_content)
-        response = sg.client.mail.send.post(request_body=mail.get())
-
+        msg = Message("NEW CLIENT MESSAGE",
+                      sender='faustiesbakery@gmail.com',
+                      body=content,
+                      recipients=['faustiesbakery@gmail.com'])
+        mail.send(msg)
 
         return redirect(url_for('index'))
 
@@ -87,16 +72,11 @@ def order():
         content = """ Name: {} \n Email: {} \n Phone: {} \n Cake_type: {} \n Shape: {} \n Weight: {} \n Cake_message: {} \n Instructions: {} \n
                   """.format(name, email, phone, cake_type, shape, weight, cake_message, instructions)
 
-        # msg = Message("NEW CLIENT ORDER",
-                    #   sender='faustiesbakery@gmail.com',
-                    #   body=content,
-                    #   recipients=['faustiesbakery@gmail.com'])
-        # mail.send(msg)
-
-        subject2 = "NEW CLIENT ORDER"
-        msg_content = Content("text/plain", content)
-        mail = Mail(from_email, subject2, to_email, msg_content)
-        response = sg.client.mail.send.post(request_body=mail.get())
+        msg = Message("NEW CLIENT ORDER",
+                      sender='faustiesbakery@gmail.com',
+                      body=content,
+                      recipients=['faustiesbakery@gmail.com'])
+        mail.send(msg)
 
         return redirect(url_for('index'))
 
