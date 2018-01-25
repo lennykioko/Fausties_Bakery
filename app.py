@@ -1,8 +1,10 @@
 """contains backend logic for the web app"""
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
+from flask.ext.heroku import Heroku
 
 app = Flask(__name__)
+heroku = Heroku(app)
 
 # email configuration
 app.config["MAIL_SERVER"] = 'smtp.gmail.com'
